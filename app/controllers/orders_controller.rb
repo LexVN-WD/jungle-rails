@@ -2,6 +2,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @line_items = @order.line_items.includes(:product)
+    @total = @order.total
+    @email = @order.email
   end
 
   def create
@@ -48,9 +51,9 @@ class OrdersController < ApplicationController
       order.line_items.new(
         product: product,
         quantity: quantity,
-        item_price: humanized_money_with_symbol product.price,
-        total_price: humanized_money_with_symbol product.price * quantity
-      )
+        item_price: product.price,
+        total_price: product.price * quantity
+        )
     end
     order.save!
     order
