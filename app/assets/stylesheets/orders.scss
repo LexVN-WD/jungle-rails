@@ -1,0 +1,62 @@
+.orders-show {
+  margin: 50px auto;
+  max-width: 800px;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.table {
+  margin-bottom: 30px;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  text-align: left;
+}
+
+.table td:first-child {
+  width: 100px;
+}
+
+.table td:nth-child(2) {
+  vertical-align: middle;
+}
+
+.table td:nth-child(2) h4 {
+  margin-top: 0;
+}
+
+.table td:nth-child(2) p {
+  margin-bottom: 0;
+}
+
+.order-summary {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #f5f5f5;
+  margin-bottom: 50px;
+}
+
+.order-summary h4 {
+  margin-bottom: 0;
+}
+
+.btn-primary {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.btn-primary:hover {
+  background-color: #286090;
+  border-color: #204d74;
+}
