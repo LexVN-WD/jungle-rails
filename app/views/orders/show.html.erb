@@ -1,8 +1,42 @@
-<section class="orders-show">
+section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
+    <h1>Order <%= @order.id %></h1>
   </header>
+
+  <h1>Order Details</h1>
+
+  <p><strong>Email:</strong> <%= @order.email %></p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @order.line_items.each do |line_item| %>
+        <tr>
+          <td><%= image_tag(line_item.product.image.url(:thumb), size: "50x50") %></td>
+          <td>
+            <h4><%= line_item.product.name %></h4>
+            <p><%= line_item.product.description %></p>
+          </td>
+          <td><%= number_to_currency(line_item.product.price_cents / 100.0, precision: 2) %></td>
+          <td><%= line_item.quantity %></td>
+          <td><%= number_to_currency(line_item.total_price_cents / 100.0, precision: 2) %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="4"></td>
+        <td><strong>Total:</strong> <%= number_to_currency(@order.total_cents / 100.0, precision: 2) %></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
